@@ -1,0 +1,16 @@
+name: coordfloor
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - openpyxl
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - pyyaml
+  - ezc3d
+  - pip
+  - pip:
+    - arch  # For optimal block length estimation (optional)

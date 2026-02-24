@@ -1,0 +1,29 @@
+# environment.lock.yml
+#
+# Notes:
+# - This file is intended for reproducible re-runs of the analysis.
+# - Versions are pinned; Conda will still resolve transitive dependencies for your platform.
+# - Channel priority should be set to strict for best reproducibility with conda-forge.
+#
+# Create the environment:
+#   conda env create -f environment.lock.yml
+#   conda activate coordfloor
+#
+name: coordfloor
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.12
+  - numpy=2.4.2
+  - pandas=3.0.1
+  - scipy=1.17.1
+  - scikit-learn=1.8.0
+  - matplotlib=3.10.8
+  - pyyaml=6.0.3
+  - ezc3d=1.6.3
+  - openpyxl=3.1.5
+  - pip=26.0.1
+  # Optional for optimal_block_length (code has a fallback heuristic if arch is missing),
+  # but pinned here so the default method runs as described:
+  - pip:
+      - arch==8.0.0

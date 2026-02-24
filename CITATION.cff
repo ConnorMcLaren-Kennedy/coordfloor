@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "CoordFloor"
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+authors:
+  - family-names: McLaren-Kennedy
+    given-names: Connor
+license: MIT
+abstract: >-
+  Analysis code for estimating a coordination floor: the slowest running
+  speed at which muscle-synergy coordination (NMF modules) remains within
+  participant-specific reliability bounds defined at a reference speed.
+keywords:
+  - muscle synergies
+  - non-negative matrix factorisation
+  - running biomechanics
+  - coordination fidelity
+  - motor control

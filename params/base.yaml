@@ -1,0 +1,73 @@
+vanhooren:
+  root: "data/raw/vanhooren"
+  c3d_dir: "data/raw/vanhooren/0. C3D files"
+  emg_map_xlsx: "data/raw/vanhooren/Excel file with EMG channels.xlsx"
+
+preprocess:
+
+  # residual mains check after notch
+  notch_ratio_threshold_post: 0.02
+
+  # clipping QC (raw voltage)
+  # Set to null to auto-estimate the rail per channel from max(|raw|)
+  clip_abs_v: null
+  clip_tol_v: 0.05
+  clip_frac_max: 0.001
+
+  # SNR reporting
+  snr_floor: 3.0
+  snr_eps: 1.0e-8
+
+  # EMG processing
+  bandpass_hz: [20, 450]
+  bandpass_order: 4
+  envelope_lowpass_hz: 6
+  envelope_order: 4
+
+  # Automatic mains check: notch only if strong 50/60 Hz concentration is detected
+  notch_enabled: true
+  notch_freqs_hz: [50, 60]
+  notch_q: 30
+  notch_ratio_threshold: 0.05   # ratio of narrowband power around 50/60 to total 20–450 power
+
+stride:
+
+  # Schmitt trigger contact detector
+  thr_off_ratio: 0.5
+  force_lowpass_hz: 20.0
+
+  # Baseline drift QC + SNR baseline window
+  baseline_pre_s: 0.05
+  baseline_end_s: 0.01
+
+  # Baseline drift thresholds
+  drift_mad_z: 3.0
+  drift_channel_fail_frac: 0.20
+
+  grf_threshold_n: 20
+  min_strike_interval_s: 0.20
+
+  # stride-duration QC (pre-specified)
+  stride_duration_min_s: 0.50
+  stride_duration_max_s: 1.50
+  stride_duration_mad_k: 5
+
+  time_norm_len: 200
+
+  # reproducible stride matching across speeds
+  match_seed: 20251214
+
+muscles:
+  # lower-limb muscles only
+  vanhooren_keep:
+    - Sol
+    - GastrocMed
+    - GastrocLat
+    - Tibialis
+    - VastusMed
+    - VastusLat
+    - RectusFem
+    - BicepsFem
+    - Semitendi/membra
+    - GlutMax
+    - GlutMed
