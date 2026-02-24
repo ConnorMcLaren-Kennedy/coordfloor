@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+
+*.npz
+
+data/raw/
+data/processed/
+metadata/qc/
+
+outputs/nmf_baseline/
+outputs/reliability_distributions/
